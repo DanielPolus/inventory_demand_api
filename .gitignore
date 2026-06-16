@@ -35,7 +35,6 @@ htmlcov/
 
 # Data files - excluded because they may contain client/business data
 data/raw/
-data/processed/
 *.csv
 *.xlsx
 *.xls
