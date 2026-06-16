@@ -1,6 +1,9 @@
 import math
 
+import numpy as np
 import pandas as pd
+
+from typing import Optional
 
 from app.data.loader import (
     load_inventory,
@@ -9,6 +12,16 @@ from app.data.loader import (
     load_sales,
     load_suppliers,
 )
+
+
+def clean_records(df: pd.DataFrame) -> list[dict]:
+    """
+    Converts DataFrame to JSON-safe records.
+    Replaces NaN / inf values with None.
+    """
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.astype(object).where(pd.notnull(df), None)
+    return df.to_dict(orient="records")
 
 
 def round_up_to_pack_size(quantity: int, pack_size: int) -> int:
@@ -21,7 +34,14 @@ def round_up_to_pack_size(quantity: int, pack_size: int) -> int:
     return int(math.ceil(quantity / pack_size) * pack_size)
 
 
-def get_replenishment_recommendations(target_days: int = 30):
+def get_replenishment_recommendations(
+    target_days: int = 30,
+    category: Optional[str] = None,
+    warehouse_id: Optional[str] = None,
+    priority: Optional[str] = None,
+    limit: Optional[int] = None,
+
+):
     sales = load_sales()
     products = load_products()
     inventory = load_inventory()
@@ -70,11 +90,11 @@ def get_replenishment_recommendations(target_days: int = 30):
     result["current_stock"] = result["available_units"]
 
     result["forecast_target_period"] = result["avg_daily_sales"] * target_days
+
     result["forecast_during_lead_time"] = (
         result["avg_daily_sales"] * result["lead_time_days"]
     )
 
-    # Страховой запас: 7 дней среднего спроса
     result["safety_stock"] = result["avg_daily_sales"] * 7
 
     result["raw_recommended_order_qty"] = (
@@ -100,7 +120,7 @@ def get_replenishment_recommendations(target_days: int = 30):
         axis=1,
     )
 
-    def priority(row):
+    def define_priority(row):
         if row["recommended_order_qty"] == 0:
             return "NO_ORDER_NEEDED"
 
@@ -112,7 +132,16 @@ def get_replenishment_recommendations(target_days: int = 30):
 
         return "NORMAL"
 
-    result["priority"] = result.apply(priority, axis=1)
+    result["priority"] = result.apply(define_priority, axis=1)
+
+    if category:
+        result = result[result["category"].str.lower() == category.lower()]
+
+    if warehouse_id:
+        result = result[result["warehouse_id"].str.lower() == warehouse_id.lower()]
+
+    if priority:
+        result = result[result["priority"].str.upper() == priority.upper()]
 
     result = result[
         [
@@ -156,14 +185,27 @@ def get_replenishment_recommendations(target_days: int = 30):
 
     result = result.drop(columns=["priority_sort"])
 
+    if limit:
+        result = result.head(limit)
+
     return {
         "target_days": target_days,
         "method": "avg_demand_plus_lead_time_safety_stock_and_pack_size",
-        "items": result.to_dict(orient="records"),
+        "filters": {
+            "category": category,
+            "warehouse_id": warehouse_id,
+            "priority": priority,
+            "limit": limit,
+        },
+        "items_count": len(result),
+        "items": clean_records(result),
     }
 
 
-def get_product_replenishment_recommendation(sku: str, target_days: int = 30):
+def get_product_replenishment_recommendation(
+    sku: str,
+    target_days: int = 30,
+):
     recommendations = get_replenishment_recommendations(target_days=target_days)
 
     items = [
@@ -177,5 +219,6 @@ def get_product_replenishment_recommendation(sku: str, target_days: int = 30):
     return {
         "sku": sku,
         "target_days": target_days,
+        "items_count": len(items),
         "items": items,
     }

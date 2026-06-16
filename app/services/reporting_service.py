@@ -2,11 +2,23 @@ from io import StringIO
 
 import pandas as pd
 
+from typing import Optional
+
 from app.services.replenishment_service import get_replenishment_recommendations
 
 
-def generate_replenishment_csv(target_days: int = 30) -> str:
-    recommendations = get_replenishment_recommendations(target_days=target_days)
+def generate_replenishment_csv(
+    target_days: int = 30,
+    category: Optional[str] = None,
+    warehouse_id: Optional[str] = None,
+    priority: Optional[str] = None,
+) -> str:
+    recommendations = get_replenishment_recommendations(
+        target_days=target_days,
+        category=category,
+        warehouse_id=warehouse_id,
+        priority=priority,
+    )
 
     items = recommendations["items"]
 
@@ -36,7 +48,10 @@ def generate_replenishment_csv(target_days: int = 30) -> str:
         "lead_time_days",
     ]
 
-    df = df[export_columns]
+    if df.empty:
+        df = pd.DataFrame(columns=export_columns)
+    else:
+        df = df[export_columns]
 
     output = StringIO()
     df.to_csv(output, index=False)

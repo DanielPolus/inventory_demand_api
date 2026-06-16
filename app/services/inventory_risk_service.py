@@ -1,10 +1,26 @@
 import numpy as np
 import pandas as pd
+from typing import Optional
 
 from app.data.loader import load_inventory, load_products, load_sales, load_suppliers
 
 
-def get_stockout_risk():
+def clean_records(df: pd.DataFrame) -> list[dict]:
+    """
+    Converts DataFrame to JSON-safe records.
+    Replaces NaN / inf values with None.
+    """
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.astype(object).where(pd.notnull(df), None)
+    return df.to_dict(orient="records")
+
+
+def get_stockout_risk(
+    category: Optional[str] = None,
+    warehouse_id: Optional[str] = None,
+    risk_level: Optional[str] = None,
+    limit: Optional[int] = None,
+):
     sales = load_sales()
     products = load_products()
     inventory = load_inventory()
@@ -36,7 +52,6 @@ def get_stockout_risk():
     result["avg_daily_sales"] = result["avg_daily_sales"].fillna(0)
     result["units_sold_30d"] = result["units_sold_30d"].fillna(0)
 
-    # Для бизнеса важнее доступный остаток, а не весь физический остаток.
     result["current_stock"] = result["available_units"]
 
     result["days_until_stockout"] = np.where(
@@ -45,7 +60,7 @@ def get_stockout_risk():
         np.nan,
     )
 
-    def risk_level(row):
+    def define_risk_level(row):
         avg_daily_sales = row["avg_daily_sales"]
         days_until_stockout = row["days_until_stockout"]
         lead_time = row["lead_time_days"]
@@ -61,7 +76,16 @@ def get_stockout_risk():
 
         return "LOW"
 
-    result["risk_level"] = result.apply(risk_level, axis=1)
+    result["risk_level"] = result.apply(define_risk_level, axis=1)
+
+    if category:
+        result = result[result["category"].str.lower() == category.lower()]
+
+    if warehouse_id:
+        result = result[result["warehouse_id"].str.lower() == warehouse_id.lower()]
+
+    if risk_level:
+        result = result[result["risk_level"].str.upper() == risk_level.upper()]
 
     result = result[
         [
@@ -99,9 +123,19 @@ def get_stockout_risk():
 
     result = result.drop(columns=["risk_sort"])
 
+    if limit:
+        result = result.head(limit)
+
     return {
         "method": "available_stock_vs_30_day_average_demand",
-        "items": result.to_dict(orient="records"),
+        "filters": {
+            "category": category,
+            "warehouse_id": warehouse_id,
+            "risk_level": risk_level,
+            "limit": limit,
+        },
+        "items_count": len(result),
+        "items": clean_records(result),
     }
 
 
@@ -118,5 +152,6 @@ def get_product_stockout_risk(sku: str):
 
     return {
         "sku": sku,
+        "items_count": len(items),
         "items": items,
     }
