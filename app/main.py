@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 
-from app.routers import analytics, products
+from app.routers import (
+    analytics,
+    forecast,
+    inventory,
+    products,
+    replenishment,
+    reports,
+)
 
 
 app = FastAPI(
@@ -12,6 +19,10 @@ app = FastAPI(
 
 app.include_router(products.router)
 app.include_router(analytics.router)
+app.include_router(forecast.router)
+app.include_router(inventory.router)
+app.include_router(replenishment.router)
+app.include_router(reports.router)
 
 
 @app.get("/health")
