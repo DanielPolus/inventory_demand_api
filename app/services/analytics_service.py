@@ -12,13 +12,9 @@ def get_sales_summary(days: int = 30):
 
     recent_sales = sales[sales["date"] >= start_date]
 
-    summary = (
-        recent_sales
-        .groupby("sku", as_index=False)
-        .agg(
-            units_sold=("units_sold", "sum"),
-            revenue=("revenue", "sum"),
-        )
+    summary = recent_sales.groupby("sku", as_index=False).agg(
+        units_sold=("units_sold", "sum"),
+        revenue=("revenue", "sum"),
     )
 
     summary["avg_daily_sales"] = summary["units_sold"] / days

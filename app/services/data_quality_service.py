@@ -12,11 +12,7 @@ from app.data.loader import (
 
 def get_missing_values(df: pd.DataFrame) -> dict:
     missing = df.isna().sum()
-    return {
-        column: int(count)
-        for column, count in missing.items()
-        if count > 0
-    }
+    return {column: int(count) for column, count in missing.items() if count > 0}
 
 
 def get_data_quality_report():

@@ -5,7 +5,6 @@ from typing import Optional
 
 from app.services.reporting_service import generate_replenishment_csv
 
-
 router = APIRouter(prefix="/reports", tags=["Reports"])
 
 
@@ -31,7 +30,5 @@ def download_replenishment_report(
     return Response(
         content=csv_content,
         media_type="text/csv",
-        headers={
-            "Content-Disposition": f'attachment; filename="{filename}"'
-        },
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )

@@ -10,7 +10,6 @@ from app.routers import (
     reports,
 )
 
-
 app = FastAPI(
     title="Inventory Demand Forecasting API",
     description=(

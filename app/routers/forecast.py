@@ -5,7 +5,6 @@ from app.services.forecasting_service import (
     get_product_demand_forecast,
 )
 
-
 router = APIRouter(prefix="/forecast", tags=["Forecast"])
 
 

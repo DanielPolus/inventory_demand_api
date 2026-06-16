@@ -40,7 +40,6 @@ def get_replenishment_recommendations(
     warehouse_id: Optional[str] = None,
     priority: Optional[str] = None,
     limit: Optional[int] = None,
-
 ):
     sales = load_sales()
     products = load_products()
@@ -53,10 +52,8 @@ def get_replenishment_recommendations(
 
     recent_sales = sales[sales["date"] >= start_date]
 
-    demand = (
-        recent_sales
-        .groupby(["sku", "warehouse_id"], as_index=False)
-        .agg(units_sold_30d=("units_sold", "sum"))
+    demand = recent_sales.groupby(["sku", "warehouse_id"], as_index=False).agg(
+        units_sold_30d=("units_sold", "sum")
     )
 
     demand["avg_daily_sales"] = demand["units_sold_30d"] / 30
@@ -65,15 +62,12 @@ def get_replenishment_recommendations(
         purchase_orders["status"].isin(["ordered", "in_transit"])
     ]
 
-    incoming = (
-        open_orders
-        .groupby(["sku", "warehouse_id"], as_index=False)
-        .agg(incoming_stock=("ordered_units", "sum"))
+    incoming = open_orders.groupby(["sku", "warehouse_id"], as_index=False).agg(
+        incoming_stock=("ordered_units", "sum")
     )
 
     result = (
-        inventory
-        .merge(products, on="sku", how="left", suffixes=("", "_product"))
+        inventory.merge(products, on="sku", how="left", suffixes=("", "_product"))
         .merge(demand, on=["sku", "warehouse_id"], how="left")
         .merge(incoming, on=["sku", "warehouse_id"], how="left")
         .merge(
@@ -106,10 +100,7 @@ def get_replenishment_recommendations(
     )
 
     result["raw_recommended_order_qty"] = (
-        result["raw_recommended_order_qty"]
-        .clip(lower=0)
-        .round()
-        .astype(int)
+        result["raw_recommended_order_qty"].clip(lower=0).round().astype(int)
     )
 
     result["recommended_order_qty"] = result.apply(
@@ -208,10 +199,7 @@ def get_product_replenishment_recommendation(
 ):
     recommendations = get_replenishment_recommendations(target_days=target_days)
 
-    items = [
-        item for item in recommendations["items"]
-        if item["sku"] == sku
-    ]
+    items = [item for item in recommendations["items"] if item["sku"] == sku]
 
     if not items:
         return None

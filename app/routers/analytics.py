@@ -2,7 +2,6 @@ from fastapi import APIRouter, Query
 
 from app.services.analytics_service import get_sales_summary
 
-
 router = APIRouter(prefix="/analytics", tags=["Analytics"])
 
 

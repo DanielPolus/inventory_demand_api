@@ -7,7 +7,6 @@ from app.services.replenishment_service import (
     get_replenishment_recommendations,
 )
 
-
 router = APIRouter(prefix="/replenishment", tags=["Replenishment"])
 
 

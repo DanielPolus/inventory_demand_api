@@ -13,12 +13,8 @@ def get_demand_forecast(days: int = 30):
     start_date = max_date - pd.Timedelta(days=29)
     recent_sales = sales[sales["date"] >= start_date]
 
-    summary = (
-        recent_sales
-        .groupby("sku", as_index=False)
-        .agg(
-            units_sold_30d=("units_sold", "sum"),
-        )
+    summary = recent_sales.groupby("sku", as_index=False).agg(
+        units_sold_30d=("units_sold", "sum"),
     )
 
     summary["avg_daily_sales"] = summary["units_sold_30d"] / 30

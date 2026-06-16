@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException
 
 from app.services.products_service import get_all_products, get_product_by_sku
 
-
 router = APIRouter(prefix="/products", tags=["Products"])
 
 

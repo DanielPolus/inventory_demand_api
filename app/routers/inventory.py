@@ -6,7 +6,6 @@ from app.services.inventory_risk_service import (
     get_stockout_risk,
 )
 
-
 router = APIRouter(prefix="/inventory", tags=["Inventory"])
 
 

@@ -30,17 +30,14 @@ def get_stockout_risk(
     start_date = max_date - pd.Timedelta(days=29)
     recent_sales = sales[sales["date"] >= start_date]
 
-    demand = (
-        recent_sales
-        .groupby(["sku", "warehouse_id"], as_index=False)
-        .agg(units_sold_30d=("units_sold", "sum"))
+    demand = recent_sales.groupby(["sku", "warehouse_id"], as_index=False).agg(
+        units_sold_30d=("units_sold", "sum")
     )
 
     demand["avg_daily_sales"] = demand["units_sold_30d"] / 30
 
     result = (
-        inventory
-        .merge(products, on="sku", how="left", suffixes=("", "_product"))
+        inventory.merge(products, on="sku", how="left", suffixes=("", "_product"))
         .merge(demand, on=["sku", "warehouse_id"], how="left")
         .merge(
             suppliers[["supplier_id", "supplier_name"]],
@@ -142,10 +139,7 @@ def get_stockout_risk(
 def get_product_stockout_risk(sku: str):
     risks = get_stockout_risk()
 
-    items = [
-        item for item in risks["items"]
-        if item["sku"] == sku
-    ]
+    items = [item for item in risks["items"] if item["sku"] == sku]
 
     if not items:
         return None
