@@ -1,0 +1,7 @@
+supplier_id,supplier_name,lead_time_days,min_order_multiplier
+SUP-001,FreshLine Distribution,3,1.25
+SUP-002,Daily Goods Wholesale,5,1.15
+SUP-003,HouseCare Logistics,7,1.1
+SUP-004,ColdChain Foods,4,1.35
+SUP-005,PetWorld Supply,6,1.2
+SUP-006,MetroPack Trading,5,1.18

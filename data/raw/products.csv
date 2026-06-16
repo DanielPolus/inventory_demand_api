@@ -1,0 +1,121 @@
+sku,product_name,category,supplier_id,base_unit_price,unit_cost,shelf_life_days,reorder_min_units,order_pack_size,active
+SKU-1001,Sparkling Water 0.5L,Beverages,SUP-002,2.44,1.28,365,61,12,1
+SKU-1002,Orange Juice 1L,Beverages,SUP-002,1.39,0.76,90,105,48,1
+SKU-1003,Energy Drink 0.25L,Beverages,SUP-002,1.17,0.63,180,94,6,1
+SKU-1004,Iced Tea Peach 0.5L,Beverages,SUP-002,2.28,1.58,730,58,48,1
+SKU-1005,Cola 0.5L,Beverages,SUP-002,2.34,1.67,90,50,48,1
+SKU-1006,Mineral Water 1.5L,Beverages,SUP-002,1.81,1.01,365,43,6,1
+SKU-1007,Family Sparkling Water 0.5L,Beverages,SUP-002,1.9,1.15,365,107,24,1
+SKU-1008,Family Orange Juice 1L,Beverages,SUP-002,2.79,1.94,90,78,6,1
+SKU-1009,Family Energy Drink 0.25L,Beverages,SUP-002,2.26,1.63,365,103,12,1
+SKU-1010,Family Iced Tea Peach 0.5L,Beverages,SUP-002,2.58,1.37,180,67,6,1
+SKU-1011,Family Cola 0.5L,Beverages,SUP-002,2.9,2.11,730,65,48,1
+SKU-1012,Family Mineral Water 1.5L,Beverages,SUP-002,2.43,1.48,365,75,12,1
+SKU-1013,Premium Sparkling Water 0.5L,Beverages,SUP-002,2.51,1.73,90,107,12,1
+SKU-1014,Premium Orange Juice 1L,Beverages,SUP-002,2.22,1.28,730,78,24,1
+SKU-1015,Premium Energy Drink 0.25L,Beverages,SUP-002,3.18,2.14,180,117,24,1
+SKU-1016,Potato Chips 150g,Snacks,SUP-006,3.51,2.48,180,34,24,1
+SKU-1017,Chocolate Bar 50g,Snacks,SUP-006,2.14,1.15,365,57,48,1
+SKU-1018,Granola Bar 40g,Snacks,SUP-006,2.13,1.58,730,48,24,1
+SKU-1019,Salted Peanuts 100g,Snacks,SUP-006,1.33,0.93,365,104,48,1
+SKU-1020,Crackers 100g,Snacks,SUP-006,3.68,2.27,180,47,48,1
+SKU-1021,Popcorn 90g,Snacks,SUP-006,1.18,0.63,90,49,12,1
+SKU-1022,Family Potato Chips 150g,Snacks,SUP-006,3.36,2.09,90,79,48,1
+SKU-1023,Family Chocolate Bar 50g,Snacks,SUP-006,2.75,1.74,365,100,6,1
+SKU-1024,Family Granola Bar 40g,Snacks,SUP-006,3.01,1.65,365,112,24,1
+SKU-1025,Family Salted Peanuts 100g,Snacks,SUP-006,1.25,0.78,730,30,24,1
+SKU-1026,Family Crackers 100g,Snacks,SUP-006,3.91,2.75,90,110,24,1
+SKU-1027,Family Popcorn 90g,Snacks,SUP-006,3.51,2.25,180,49,24,1
+SKU-1028,Premium Potato Chips 150g,Snacks,SUP-006,3.26,2.12,90,106,24,1
+SKU-1029,Premium Chocolate Bar 50g,Snacks,SUP-006,2.41,1.32,365,69,12,1
+SKU-1030,Premium Granola Bar 40g,Snacks,SUP-006,1.08,0.79,90,40,48,1
+SKU-1031,Greek Yogurt 150g,Dairy,SUP-001,5.49,4.14,10,46,48,1
+SKU-1032,Milk 2.5% 1L,Dairy,SUP-001,6.21,3.48,30,57,12,1
+SKU-1033,Cottage Cheese 200g,Dairy,SUP-001,4.92,3.03,14,86,48,1
+SKU-1034,Butter 200g,Dairy,SUP-001,1.67,0.96,14,32,12,1
+SKU-1035,Hard Cheese 250g,Dairy,SUP-001,4.24,2.21,7,59,6,1
+SKU-1036,Kefir 1L,Dairy,SUP-001,5.98,4.34,7,95,12,1
+SKU-1037,Family Greek Yogurt 150g,Dairy,SUP-001,2.53,1.61,10,103,48,1
+SKU-1038,Family Milk 2.5% 1L,Dairy,SUP-001,2.34,1.48,30,54,6,1
+SKU-1039,Family Cottage Cheese 200g,Dairy,SUP-001,1.53,0.95,30,82,48,1
+SKU-1040,Family Butter 200g,Dairy,SUP-001,5.75,3.06,7,37,48,1
+SKU-1041,Family Hard Cheese 250g,Dairy,SUP-001,5.01,3.57,7,61,12,1
+SKU-1042,Family Kefir 1L,Dairy,SUP-001,2.05,1.29,30,53,24,1
+SKU-1043,Premium Greek Yogurt 150g,Dairy,SUP-001,3.54,2.58,7,86,6,1
+SKU-1044,Premium Milk 2.5% 1L,Dairy,SUP-001,1.28,0.97,7,41,12,1
+SKU-1045,Premium Cottage Cheese 200g,Dairy,SUP-001,1.91,1.22,10,81,6,1
+SKU-1046,Toast Bread 500g,Bakery,SUP-001,1.16,0.6,30,63,48,1
+SKU-1047,Croissant 60g,Bakery,SUP-001,1.5,1.03,30,49,12,1
+SKU-1048,Burger Buns 4pcs,Bakery,SUP-001,1.53,1.15,7,70,6,1
+SKU-1049,Baguette 250g,Bakery,SUP-001,0.84,0.53,10,37,6,1
+SKU-1050,Muffin 90g,Bakery,SUP-001,3.08,1.65,7,116,12,1
+SKU-1051,Pita Bread 5pcs,Bakery,SUP-001,1.83,1.37,10,104,6,1
+SKU-1052,Family Toast Bread 500g,Bakery,SUP-001,2.43,1.51,14,63,12,1
+SKU-1053,Family Croissant 60g,Bakery,SUP-001,2.58,1.54,14,80,12,1
+SKU-1054,Family Burger Buns 4pcs,Bakery,SUP-001,2.58,1.53,14,39,6,1
+SKU-1055,Family Baguette 250g,Bakery,SUP-001,1.98,1.5,7,39,12,1
+SKU-1056,Family Muffin 90g,Bakery,SUP-001,2.12,1.17,14,38,12,1
+SKU-1057,Family Pita Bread 5pcs,Bakery,SUP-001,1.73,0.97,14,108,6,1
+SKU-1058,Premium Toast Bread 500g,Bakery,SUP-001,2.57,1.68,7,47,24,1
+SKU-1059,Premium Croissant 60g,Bakery,SUP-001,1.02,0.56,10,64,24,1
+SKU-1060,Premium Burger Buns 4pcs,Bakery,SUP-001,2.39,1.65,10,117,24,1
+SKU-1061,Paper Towels 2 rolls,Household,SUP-003,6.04,3.5,90,12,48,1
+SKU-1062,Dish Soap 500ml,Household,SUP-003,8.63,4.58,365,34,12,1
+SKU-1063,Laundry Gel 1L,Household,SUP-003,7.1,4.14,730,27,48,1
+SKU-1064,Trash Bags 30pcs,Household,SUP-003,6.49,3.55,180,27,6,1
+SKU-1065,Sponges 5pcs,Household,SUP-003,8.68,5.73,180,23,12,1
+SKU-1066,Toilet Paper 8 rolls,Household,SUP-003,2.33,1.42,90,38,24,1
+SKU-1067,Family Paper Towels 2 rolls,Household,SUP-003,3.68,2.13,90,21,48,1
+SKU-1068,Family Dish Soap 500ml,Household,SUP-003,9.79,6.85,180,37,12,1
+SKU-1069,Family Laundry Gel 1L,Household,SUP-003,9.81,7.01,730,10,12,1
+SKU-1070,Family Trash Bags 30pcs,Household,SUP-003,7.89,4.73,730,35,12,1
+SKU-1071,Family Sponges 5pcs,Household,SUP-003,4.13,2.93,90,22,6,1
+SKU-1072,Family Toilet Paper 8 rolls,Household,SUP-003,8.87,5.09,730,21,24,1
+SKU-1073,Premium Paper Towels 2 rolls,Household,SUP-003,8.56,6.24,180,10,12,1
+SKU-1074,Premium Dish Soap 500ml,Household,SUP-003,5.19,3.05,90,40,24,1
+SKU-1075,Premium Laundry Gel 1L,Household,SUP-003,4.81,3.09,365,40,6,1
+SKU-1076,Shampoo 400ml,Personal Care,SUP-003,3.25,2.45,180,28,24,1
+SKU-1077,Toothpaste 100ml,Personal Care,SUP-003,2.75,1.82,365,33,24,1
+SKU-1078,Liquid Soap 500ml,Personal Care,SUP-003,5.34,4.04,90,22,12,1
+SKU-1079,Deodorant 150ml,Personal Care,SUP-003,4.16,2.87,90,26,12,1
+SKU-1080,Shower Gel 250ml,Personal Care,SUP-003,4.87,2.61,365,29,24,1
+SKU-1081,Hand Cream 75ml,Personal Care,SUP-003,6.81,3.74,365,26,24,1
+SKU-1082,Family Shampoo 400ml,Personal Care,SUP-003,6.83,4.09,365,27,12,1
+SKU-1083,Family Toothpaste 100ml,Personal Care,SUP-003,3.75,2.55,730,31,12,1
+SKU-1084,Family Liquid Soap 500ml,Personal Care,SUP-003,6.5,3.85,90,19,24,1
+SKU-1085,Family Deodorant 150ml,Personal Care,SUP-003,3.87,2.74,365,24,48,1
+SKU-1086,Family Shower Gel 250ml,Personal Care,SUP-003,5.37,3.07,730,35,12,1
+SKU-1087,Family Hand Cream 75ml,Personal Care,SUP-003,6.78,3.99,365,12,12,1
+SKU-1088,Premium Shampoo 400ml,Personal Care,SUP-003,6.87,3.94,180,14,6,1
+SKU-1089,Premium Toothpaste 100ml,Personal Care,SUP-003,2.8,2.12,90,24,48,1
+SKU-1090,Premium Liquid Soap 500ml,Personal Care,SUP-003,8.26,5.44,730,25,48,1
+SKU-1091,Cat Food 400g,Pet Supplies,SUP-005,4.44,3.01,90,38,6,1
+SKU-1092,Dog Treats 100g,Pet Supplies,SUP-005,9.78,5.6,730,11,12,1
+SKU-1093,Cat Litter 5L,Pet Supplies,SUP-005,11.17,6.13,180,35,48,1
+SKU-1094,Dog Food 1kg,Pet Supplies,SUP-005,8.68,6.57,365,40,48,1
+SKU-1095,Pet Shampoo 250ml,Pet Supplies,SUP-005,8.13,5.63,730,36,48,1
+SKU-1096,Bird Seeds 500g,Pet Supplies,SUP-005,10.97,7.66,730,24,24,1
+SKU-1097,Family Cat Food 400g,Pet Supplies,SUP-005,9.52,6.87,365,34,48,1
+SKU-1098,Family Dog Treats 100g,Pet Supplies,SUP-005,8.27,4.85,90,32,24,1
+SKU-1099,Family Cat Litter 5L,Pet Supplies,SUP-005,4.34,2.61,90,14,12,1
+SKU-1100,Family Dog Food 1kg,Pet Supplies,SUP-005,4.31,2.96,180,12,48,1
+SKU-1101,Family Pet Shampoo 250ml,Pet Supplies,SUP-005,6.08,3.95,730,11,12,1
+SKU-1102,Family Bird Seeds 500g,Pet Supplies,SUP-005,10.33,6.34,90,37,48,1
+SKU-1103,Premium Cat Food 400g,Pet Supplies,SUP-005,6.77,5.05,365,34,48,1
+SKU-1104,Premium Dog Treats 100g,Pet Supplies,SUP-005,10.53,7.89,730,27,12,1
+SKU-1105,Premium Cat Litter 5L,Pet Supplies,SUP-005,6.88,4.03,730,10,48,1
+SKU-1106,Frozen Pizza 350g,Frozen,SUP-004,4.52,3.09,730,51,48,1
+SKU-1107,Ice Cream 500ml,Frozen,SUP-004,8.02,6.06,90,80,6,1
+SKU-1108,Frozen Vegetables 400g,Frozen,SUP-004,3.0,1.87,730,53,6,1
+SKU-1109,Chicken Nuggets 500g,Frozen,SUP-004,4.06,2.43,730,71,24,1
+SKU-1110,Frozen Berries 300g,Frozen,SUP-004,7.07,4.32,730,62,6,1
+SKU-1111,Dumplings 700g,Frozen,SUP-004,5.32,3.72,90,74,12,1
+SKU-1112,Family Frozen Pizza 350g,Frozen,SUP-004,6.4,4.53,90,33,12,1
+SKU-1113,Family Ice Cream 500ml,Frozen,SUP-004,3.7,1.94,180,60,12,1
+SKU-1114,Family Frozen Vegetables 400g,Frozen,SUP-004,5.34,2.92,180,89,24,1
+SKU-1115,Family Chicken Nuggets 500g,Frozen,SUP-004,7.1,3.98,90,50,24,1
+SKU-1116,Family Frozen Berries 300g,Frozen,SUP-004,3.15,1.66,365,103,48,1
+SKU-1117,Family Dumplings 700g,Frozen,SUP-004,4.88,3.38,90,105,12,1
+SKU-1118,Premium Frozen Pizza 350g,Frozen,SUP-004,3.11,2.19,90,102,6,1
+SKU-1119,Premium Ice Cream 500ml,Frozen,SUP-004,4.58,2.85,365,38,24,1
+SKU-1120,Premium Frozen Vegetables 400g,Frozen,SUP-004,2.58,1.6,730,43,48,1
